@@ -106,7 +106,7 @@ download_binary() {
     TMP_CHECKSUMS="${TMP_DIR}/checksums.txt"
 
     echo "Downloading ${BINARY_NAME}-${OS}-${ARCH}..."
-    if ! curl -fsSL -o "$TMP_BINARY" "$BINARY_URL"; then
+    if ! curl -fSL --progress-bar -o "$TMP_BINARY" "$BINARY_URL"; then
         echo "Error: failed to download binary from ${BINARY_URL}" >&2
         rm -rf "$TMP_DIR"
         exit 1
